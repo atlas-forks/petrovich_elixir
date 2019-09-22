@@ -34,14 +34,28 @@ defmodule Petrovich.Store do
       end
 
       defp load_values do
-        @app
-        |> Config.get_env(@setting)
+        @setting
+        |> get_path()
         |> File.read!()
         |> get_json_codec().decode!()
       rescue
         e in File.Error ->
           reraise RulesFileException, System.stacktrace(),
             message: Exception.message(e)
+      end
+
+      defp get_path(:gender_path) do
+        case Config.get_env(@app, :gender_path) do
+          nil -> File.cwd! <> "rules/gender.json"
+          path -> path
+        end
+      end
+
+      defp get_path(:rules_path) do
+        case Config.get_env(@app, :rules_path) do
+          nil -> File.cwd! <> "rules/gender.json"
+          path -> path
+        end
       end
 
       defp get_json_codec do
