@@ -46,14 +46,14 @@ defmodule Petrovich.Store do
 
       defp get_path(:gender_path) do
         case Config.get_env(@app, :gender_path) do
-          nil -> File.cwd! <> "rules/gender.json"
+          nil ->  Application.app_dir(@app, "priv/rules/gender.json")
           path -> path
         end
       end
 
       defp get_path(:rules_path) do
         case Config.get_env(@app, :rules_path) do
-          nil -> File.cwd! <> "rules/gender.json"
+          nil -> Application.app_dir(@app, "priv/rules/rules.json")
           path -> path
         end
       end

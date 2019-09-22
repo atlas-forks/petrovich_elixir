@@ -61,7 +61,7 @@ defmodule Petrovich.Mixfile do
       maintainers: ["Nikita Sobolev"],
       licenses: ["MIT"],
       links: %{"GitHub" => @url},
-      files: ~w(mix.exs README.md lib config rules/*.json)
+      files: ~w(mix.exs README.md lib config priv)
     ]
   end
 end
