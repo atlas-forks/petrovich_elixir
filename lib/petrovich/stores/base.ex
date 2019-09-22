@@ -59,7 +59,7 @@ defmodule Petrovich.Store do
       end
 
       defp get_json_codec do
-        Config.get_env(@app, :json_codec)
+        Config.get_env(@app, :json_codec) || Jason
       end
     end
   end
