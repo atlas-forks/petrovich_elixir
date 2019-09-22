@@ -3,6 +3,8 @@
 use Mix.Config
 
 config :petrovich_elixir,
+  rules_path: "lib/petrovich/rules/rules.json",
+  gender_path: "lib/petrovich/rules/gender.json",
   json_codec: Jason
 
 # We only use config for tests and development:
